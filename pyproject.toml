@@ -2,7 +2,7 @@
 name = "comfyui_mittimi_width_height"
 description = "This node can easily switch between vertical and horizontal values with a single button."
 version = "1.0.0"
-license = { file = "LICENSE" }
+license = { file = "LICENSE.txt" }
 
 [project.urls]
 Repository = "https://github.com/mittimi/ComfyUI_mittimiWidthHeight"
