@@ -1,5 +1,11 @@
 # ComfyUI_mittimiWidthHeight
 
+※Added a preset function for size. Please enter your frequently used size in the "presets.toml" file within the presets folder.
+
+※縦横サイズのプリセット機能を追加しました。presetsフォルダのpresets.tomlによく使う縦横サイズを記入してください。
+　
+　<br><br>
+
 As shown in the image below, pressing the “Swap” button swaps the Width and Height values.
 
 下の画像のように、「Swap」ボタンを押すと Width と Height の値が入れ替わります。
