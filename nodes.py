@@ -12,6 +12,12 @@ with open(presets__path, 'r') as f:
 wh_list =  re.findall(r"\b\d+x\d+\b", preset_data['wh'])
 
 
+class AnyType(str):
+    def __ne__(self, __value: object) -> bool:
+        return False
+anytype = AnyType("*")
+
+
 class WidthHeightMittimi01:
     @classmethod
     def INPUT_TYPES(s):
@@ -55,11 +61,38 @@ class OutputLongLengthMittimi01:
         return(longlength, )
 
 
+class GoStopAnythingMittimi01:
+    @classmethod
+    def INPUT_TYPES(cls):
+        return {
+            "required": {
+                "GO": ("BOOLEAN", {"default": True}),
+                "AnyData": (anytype,),
+            },
+        }
+
+    RETURN_TYPES = (anytype,)
+    RETURN_NAMES = ("AnyData",)
+    FUNCTION = "GoStopAnythingMittimi"
+    CATEGORY = "mittimiTools"
+
+    def GoStopAnythingMittimi(self, GO, AnyData):
+
+        return_data = None
+        if GO:
+            return_data = AnyData
+
+        return (return_data, )
+
+
+
 NODE_CLASS_MAPPINGS = {
     "WidthHeightMittimi01": WidthHeightMittimi01,
     "OutputLongLengthMittimi01": OutputLongLengthMittimi01,
+    "GoStopAnythingMittimi01": GoStopAnythingMittimi01,
 }
 NODE_DISPLAY_NAME_MAPPINGS = {
     "WidthHeightMittimi01": "WidthHeight01",
     "OutputLongLengthMittimi01": "OutputLongLength01",
+    "GoStopAnythingMittimi01": "GoStopAnything01"
 }
