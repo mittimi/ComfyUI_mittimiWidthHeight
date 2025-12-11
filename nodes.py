@@ -34,9 +34,32 @@ class WidthHeightMittimi01:
         return(Width, Height, )
 
 
+class OutputLongLengthMittimi01:
+    @classmethod
+    def INPUT_TYPES(s):
+        return {"required": {
+                    "Width": ("INT", {"default": 512, "min": 1, "max": 2147483647} ),
+                    "Height": ("INT", {"default": 512, "min": 1, "max": 2147483647} ),
+                },
+        }
+
+    RETURN_TYPES = ("INT", )
+    RETURN_NAMES = ("INT", )
+    FUNCTION = "runOutputLongLength"
+    CATEGORY = "mittimiTools"
+
+    def runOutputLongLength(self, Width, Height, ):
+        longlength = Width
+        if (Height > Width):
+            longlength = Height
+        return(longlength, )
+
+
 NODE_CLASS_MAPPINGS = {
-    "WidthHeightMittimi01": WidthHeightMittimi01,   
+    "WidthHeightMittimi01": WidthHeightMittimi01,
+    "OutputLongLengthMittimi01": OutputLongLengthMittimi01,
 }
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "WidthHeightMittimi01": "WidthHeight01", 
+    "WidthHeightMittimi01": "WidthHeight01",
+    "OutputLongLengthMittimi01": "OutputLongLength01",
 }
